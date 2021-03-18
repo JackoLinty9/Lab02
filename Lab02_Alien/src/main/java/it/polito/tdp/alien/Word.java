@@ -10,10 +10,10 @@ public class Word {
 		this.alienWord = alienWord;
 	}
 
-	public Word(String alienWord, String transaltion) { //costruttore per quando mi viene data la traduzione insieme alla parola
+	public Word(String alienWord, String translation) { //costruttore per quando mi viene data la traduzione insieme alla parola
 		super();
 		this.alienWord = alienWord;
-		this.translation = transaltion;
+		this.translation = translation;
 	}
 
 	public String getAlienWord() {
@@ -24,12 +24,12 @@ public class Word {
 		this.alienWord = alienWord;
 	}
 
-	public String getTransaltion() {
+	public String getTranslation() {
 		return translation;
 	}
 
-	public void setTransaltion(String transaltion) {
-		this.translation = transaltion;
+	public void setTranslation(String translation) {
+		this.translation = translation;
 	}
 	
     //devo implementare metodi equals e hasCode

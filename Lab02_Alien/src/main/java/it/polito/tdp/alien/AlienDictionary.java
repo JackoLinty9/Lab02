@@ -15,7 +15,7 @@ public class AlienDictionary {
 		Word w=new Word(alienWord, translation);
 		
 		if(dictionary.contains(w)) {
-			dictionary.get(dictionary.indexOf(w)).setTransaltion(translation);
+			dictionary.get(dictionary.indexOf(w)).setTranslation(translation);
 		}
 		else dictionary.add(w);
 		
@@ -26,7 +26,7 @@ public class AlienDictionary {
 		Word w= new Word(alienWord);
 		
 		if(dictionary.contains(w))
-			return dictionary.get(dictionary.indexOf(w)).getTransaltion();
+			return dictionary.get(dictionary.indexOf(w)).getTranslation();
 		return null;
 	}
 	

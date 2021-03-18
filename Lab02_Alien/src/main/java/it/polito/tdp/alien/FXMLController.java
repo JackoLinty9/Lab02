@@ -50,35 +50,40 @@ public class FXMLController {
     		return;
     	}
     	
-    	//controllo che non ci siano numeri o caratteri speciali nel testo inserito
-    	if(inserito.matches("((?=.*\\d).{1,200})")==true || inserito.matches("((?=.*[!?@#]).{1,200})")==true ) { 
-			txtResult.setText("Errore nel formato: la parola non può contenere nè numeri nè caratteri speciali");
-			return;
+    	String[] ins=inserito.split(" ");
+    	
+    	//controllo che siano state inserite al più 2 parole
+    	if(ins.length>2) {
+    		txtResult.setText("Errore: si possono inserire al massimo due parole");
+		    return;
     	}
     	
-		//controllo il formato dell'input (1 o 2 parole)
-    	if(!inserito.contains(" ")) {
-    			String result=dictionary.translateWord(inserito);
-    			if(result==null) {
-    				txtResult.setText("Traduzione per la parola "+inserito+" non trovata");
-    				return;
-    			}
-    		    txtResult.setText("La parola "+inserito+" significa "+result);
-    		    return;
+		if(ins.length==2) {
+			String alien=ins[0];
+			String trad=ins[1];
+			if(alien.matches("[a-z]+")==false || trad.matches("[a-z]+")==false){
+				txtResult.setText("Errore nel formato: le parole non possono contenere nè numeri nè caratteri speciali");
+			    return;
+			    }
+			else {
+				dictionary.addWord(alien, trad);
+				txtResult.setText("La parola "+alien+" è stata aggiunta al dictionary");
+				txtAlieno.clear();
+				return;
+			}
     	}
-    	
     	else {
-    		String[] ins=inserito.split(" ");
-    		if(ins.length==2) {
-    			String alien=ins[0];
-    			String trad=ins[1];
-    			dictionary.addWord(alien, trad);
-    			txtResult.setText("La parola "+alien+" è stata aggiunta al dictionary");
-    			txtAlieno.clear();
-    			return;
+    		String alien=ins[0];
+    		String result=dictionary.translateWord(alien);
+			if(result==null) {
+				txtResult.setText("Traduzione per la parola "+alien+" non trovata");
+				return;
+			}
+		    txtResult.setText("La parola "+alien+" significa "+result);
+		    return;
     		}
     	}	
-    }
+    
 
     @FXML
     void initialize() {
