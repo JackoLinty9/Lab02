@@ -58,31 +58,33 @@ public class FXMLController {
 		    return;
     	}
     	
+    	String alien=ins[0];
+    	
 		if(ins.length==2) {
-			String alien=ins[0];
 			String trad=ins[1];
 			if(alien.matches("[a-z]+")==false || trad.matches("[a-z]+")==false){
-				txtResult.setText("Errore nel formato: le parole non possono contenere nè numeri nè caratteri speciali");
+				txtResult.setText("Errore nel formato: le parole possono contenere solo caratteri alfabetici");
 			    return;
 			    }
-			else {
-				dictionary.addWord(alien, trad);
-				txtResult.setText("La parola "+alien+" è stata aggiunta al dictionary");
-				txtAlieno.clear();
-				return;
-			}
+			dictionary.addWord(alien, trad);
+			txtResult.setText("La parola "+alien+" è stata aggiunta al dictionary");
+			txtAlieno.clear();
     	}
-    	else {
-    		String alien=ins[0];
+    	else{
+    		if(alien.matches("[a-z]+")==false){
+				txtResult.setText("Errore nel formato: le parole possono contenere solo caratteri alfabetici");
+			    return;
+			    }
+    		
     		String result=dictionary.translateWord(alien);
 			if(result==null) {
 				txtResult.setText("Traduzione per la parola "+alien+" non trovata");
-				return;
 			}
-		    txtResult.setText("La parola "+alien+" significa "+result);
-		    return;
-    		}
-    	}	
+			else {
+		    txtResult.setText(result);
+		    }
+    	}
+    }
     
 
     @FXML
