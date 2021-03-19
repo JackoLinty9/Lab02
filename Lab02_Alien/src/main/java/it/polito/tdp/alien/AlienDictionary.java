@@ -29,7 +29,7 @@ public class AlienDictionary {
 		
 		if(dictionary.contains(w)) {
 			return dictionary.get(dictionary.indexOf(w)).getTranslation();
-		}
+			}
 		return null;
 	}
 	

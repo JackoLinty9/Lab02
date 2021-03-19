@@ -23,7 +23,7 @@ public class WordEnhanced {
 	public String getTranslation(){
 		String s="";
 		for(String stringa: translations) {
-			s+=stringa+"\n";
+			s=s +stringa+"\n";
 		}
 		return s;
 	}
@@ -43,7 +43,6 @@ public class WordEnhanced {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((alienWord == null) ? 0 : alienWord.hashCode());
-		result = prime * result + ((translations == null) ? 0 : translations.hashCode());
 		return result;
 	}
 
@@ -60,11 +59,6 @@ public class WordEnhanced {
 			if (other.alienWord != null)
 				return false;
 		} else if (!alienWord.equals(other.alienWord))
-			return false;
-		if (translations == null) {
-			if (other.translations != null)
-				return false;
-		} else if (!translations.equals(other.translations))
 			return false;
 		return true;
 	}

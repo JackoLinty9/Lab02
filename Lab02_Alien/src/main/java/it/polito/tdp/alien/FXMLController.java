@@ -77,11 +77,12 @@ public class FXMLController {
 			    }
     		
     		String result=dictionary.translateWord(alien);
+    		System.out.println(result);
 			if(result==null) {
 				txtResult.setText("Traduzione per la parola "+alien+" non trovata");
 			}
 			else {
-		    txtResult.setText(result);
+		    txtResult.setText("La parola "+alien+" significa:\n"+result);
 		    }
     	}
     }
