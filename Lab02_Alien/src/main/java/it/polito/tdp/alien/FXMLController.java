@@ -62,7 +62,7 @@ public class FXMLController {
     	
 		if(ins.length==2) {
 			String trad=ins[1];
-			if(alien.matches("[a-z]+")==false || trad.matches("[a-z]+")==false){
+			if(alien.matches("[a-zA-Z]+")==false || trad.matches("[a-zA-Z]+")==false){ //regular expressions
 				txtResult.setText("Errore nel formato: le parole possono contenere solo caratteri alfabetici");
 			    return;
 			    }
@@ -71,7 +71,7 @@ public class FXMLController {
 			txtAlieno.clear();
     	}
     	else{
-    		if(alien.matches("[a-z]+")==false){
+    		if(alien.matches("[a-zA-Z]+")==false){
 				txtResult.setText("Errore nel formato: le parole possono contenere solo caratteri alfabetici");
 			    return;
 			    }

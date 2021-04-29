@@ -14,11 +14,11 @@ public class AlienDictionary {
 	public void addWord(String alienWord, String translation) {
 		WordEnhanced w=new WordEnhanced(alienWord);
 		
-		if(dictionary.contains(w)) {
+		if(dictionary.contains(w)) { //se la parola è già nel dizionario ( ha già delle traduzioni)
 			dictionary.get(dictionary.indexOf(w)).setTranslation(translation);
 			return;
 		}
-		//se invece la traduzione non è registrata
+		//se invece la parola non ha ancora traduzioni
 		w.setTranslation(translation);
 		dictionary.add(w);
 		return;

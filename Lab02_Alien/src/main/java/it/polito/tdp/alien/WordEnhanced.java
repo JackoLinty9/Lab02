@@ -5,7 +5,7 @@ import java.util.List;
 
 public class WordEnhanced {
 	private String alienWord;
-	private List<String> translations;
+	private List<String> translations; //lista di tutte le traduzioni di una parola
 	
 	public WordEnhanced(String alienWord) {
 		super();
